@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Claims Management</title>
+    <link rel="stylesheet" href="claimsPageCSS.css">
+    <link href="https://fonts.googleapis.com/css2?family=Headland+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kameron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <div class="left">
+            <h1>Claims<br>Management</h1>
+        </div>
+        <div class="right">
+            <div class="top-row">
+                <div class="username">
+                    <i class="fa-solid fa-user"></i>
+                    <h2>username</h2>
+                </div>
+            </div>
+            <div class="bottom-row">
+                <form class="search-form" action="search-results.html" method="GET">
+                    <div class="search-box">
+                        <input type="text" name="query" placeholder="Search...">
+                        <button type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="menu">
+                    <i class="fa-solid fa-bars"></i>
+                    <span>Menu</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--mainPart-->
+    <div class="mainPart">
+        <div class="brief-infos">
+            <h2>Βrief Infos</h2>
+            <p><strong>Claim number:</strong> 12345</p>
+            <p><strong>Customer:</strong> Papadopoulos Giannis</p>
+            <p><strong>Label number:</strong> 000-0000</p>
+            <p><strong>Location:</strong> Athens, Greece</p>
+            <p><strong>Date of incident:</strong> 26/04/2025</p>
+            <p><strong>Status:</strong> Under Investigation</p>
+            <p><strong>Priority:</strong> Medium</p>
+            <p><strong>Assigned to:</strong> Papadopoulou Maria</p>
+            <p><strong>Open Since:</strong> 03d 12h</p>
+            <p><strong>Estimated Payout:</strong> €4,500</p>
+            <p><strong>Fraud Risk:</strong> Low</p>
+            <p><strong>Blame:</strong> 100%</p>
+        </div>
+        <div class="folder-infos">
+            <h2>Folder Infos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <p>Claim number: 12345</p>
+                        <p>Assigned to: Papadopoulou Maria</p>
+                        <p>Reported to: Nikos Marangos</p>
+                    </tr>
+                </thead>
+            </table>
+
+            <div class="involved">
+                <div class="person">
+                    <div class="involved-title">Involved 01</div>
+                    <div class="person-info">
+                        <p>Name: Giannis</p>
+                        <p>Surname: Papadopoulos</p>
+                        <p>Phone: 6999999999</p>
+                        <p>Email: gpapadopoulos@gmail.com</p>
+                        <p>Label number: OOO-0000</p>
+                        <p>Insurance: A Ασφαλιστική</p>
+                        <p>Blame: 100%</p>
+                    </div>
+                </div>
+                <div class="person">
+                    <div class="involved-title">Involved 02</div>
+                    <div class="person-info">
+                        <p>Name:</p>
+                        <p>Surname:</p>
+                        <p>Phone:</p>
+                        <p>Email:</p>
+                        <p>Label number:</p>
+                        <p>Insurance:</p>
+                        <p>Blame:</p>
+                    </div>
+                </div>
+                <div class="person">
+                    <div class="involved-title">Involved 03</div>
+                    <div class="person-info">
+                        <p>Name:</p>
+                        <p>Surname:</p>
+                        <p>Phone:</p>
+                        <p>Email:</p>
+                        <p>Label number:</p>
+                        <p>Insurance:</p>
+                        <p>Blame:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="details">
+                <label for="details">Details</label>
+                <textarea id="details" placeholder="Add details..."></textarea>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="status">
+                <h3>Status: Open, 03d 02h</h3>
+                <ul>
+                    <li>New update: 00d 01h</li>
+                    <li>New doc: 00d 02h</li>
+                </ul>
+            </div>
+            <div class="requests">
+                <h3>Requests</h3>
+                <select id="team-select">
+                    <option value="">Choose team to assert the request...</option>
+                    <option value="Garage">Garage</option>
+                    <option value="Lawyer">Δικηγόρος</option>
+                    <option value="Settler">Settler</option>
+                    <option value="Adjuster">Adjuster</option>
+                </select>
+                <button onclick="openRequestForm()">➕</button>
+            </div>
+            <div class="info-links">
+                <h3>Information link</h3>
+                <div id="link-container">
+                    <input type="text" class="link-input" placeholder="Add link...">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+
+</body>
+<script>
+    const textarea = document.getElementById('details');
+    const output = document.getElementById('details-output');
+
+    textarea.addEventListener('input', function () {
+        output.textContent = textarea.value;
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const container = document.getElementById('link-container');
+
+        container.addEventListener('input', function (e) {
+            if (e.target.classList.contains('link-input')) {
+                const inputs = container.querySelectorAll('.link-input');
+                const lastInput = inputs[inputs.length - 1];
+
+                if (lastInput.value.trim() !== '') {
+                    // Δημιουργεί νέα input αν η τελευταία έχει κάτι
+                    const newInput = document.createElement('input');
+                    newInput.type = 'text';
+                    newInput.placeholder = 'Insert link ➕';
+                    newInput.className = 'link-input';
+                    container.appendChild(newInput);
+                }
+            }
+        });
+    });
+</script>
+
+</html>

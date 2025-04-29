@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    background: #2a5d8f;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left h1 {
+    font-family: 'Kameron', serif;
+    font-size: 20px;
+    margin: 0;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    width: 100%;
+}
+
+.top-row,
+.bottom-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Username styles */
+.username {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+}
+
+.username i {
+    font-size: 15px;
+}
+
+.username h2 {
+    font-family: 'Inter', serif;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Search form */
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-box {
+    position: relative;
+    width: 150px;
+    height: 28px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 5px 30px 5px 10px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.search-box button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #888;
+}
+
+/* Menu */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Inter', serif;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+}
+
+.mainPart {
+    display: flex;
+    padding: 10px;
+}
+
+.brief-infos,
+.folder-infos,
+.right-panel {
+    padding: 10px;
+    margin: 10px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.brief-infos {
+    flex: 1;
+    font-family: 'Inter', serif;
+}
+
+.folder-infos {
+    flex: 2;
+    font-family: 'Inter', serif;
+}
+
+
+
+.involved {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+
+}
+
+.person {
+    border: 1px solid #ccc;
+    padding: 5px;
+
+    border-radius: 6px;
+}
+
+.involved-title {
+    background: #020202;
+    border: 1px solid #ccc;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+
+
+
+.details,
+.output {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', serif;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.output p {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 6px;
+    min-height: 50px;
+    white-space: pre-wrap;
+}
+
+.right-panel {
+    flex: 1;
+    background: #fff;
+}
+
+.right-panel h3 {
+    font-family: 'Inter', serif;
+    font-size: 15px;
+    margin: 0;
+}
+
+.requests,
+.info-links {
+    margin-top: 20px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 30%;
+    width: 40%;
+    background: white;
+    border: 2px solid black;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.popup-content {
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+}
+
+.link-input {
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: 'Inter', serif;
+}
