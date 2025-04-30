@@ -27,7 +27,12 @@
                     <h2>username</h2>
                 </div>
             </div>
+
             <div class="bottom-row">
+                <div class="notification">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </div>
                 <form class="search-form" action="search-results.html" method="GET">
                     <div class="search-box">
                         <input type="text" name="query" placeholder="Search...">
@@ -36,10 +41,7 @@
                         </button>
                     </div>
                 </form>
-                <div class="menu">
-                    <i class="fa-solid fa-bars"></i>
-                    <span>Menu</span>
-                </div>
+
             </div>
         </div>
     </div>
@@ -116,36 +118,63 @@
             </div>
         </div>
         <div class="right-panel">
-            <div class="status">
-                <h3>Status: Open, 03d 02h</h3>
-                <ul>
-                    <li>New update: 00d 01h</li>
-                    <li>New doc: 00d 02h</li>
-                </ul>
-            </div>
-            <div class="requests">
-                <h3>Requests</h3>
-                <select id="team-select">
-                    <option value="">Choose team to assert the request...</option>
-                    <option value="Garage">Garage</option>
-                    <option value="Lawyer">Δικηγόρος</option>
-                    <option value="Settler">Settler</option>
-                    <option value="Adjuster">Adjuster</option>
-                </select>
-                <button onclick="openRequestForm()">➕</button>
-            </div>
-            <div class="info-links">
-                <h3>Information link</h3>
-                <div id="link-container">
-                    <input type="text" class="link-input" placeholder="Add link...">
+            <div class="uper-right-panel">
+                <div class="status">
+                    <h3>Status: Open, 03d 02h</h3>
+                    <ul>
+                        <p>- New update: 00d 01h</p>
+                        <p>- New doc: 00d 02h</p>
+                    </ul>
                 </div>
             </div>
+
+            <div class="lower-right-panel">
+
+
+
+                <div class="requests">
+                    <h3>Requests</h3>
+                    <select id="team-select">
+                        <option value="">Choose team to assert the request...</option>
+                        <option value="Garage">Garage</option>
+                        <option value="Lawyer">Lawyer</option>
+                        <option value="Settler">Settler</option>
+                        <option value="Adjuster">Adjuster</option>
+                    </select>
+                    <button onclick="openRequestForm()">➕</button>
+
+                    <!-- Popup και overlay μέσα στη .requests -->
+                    <div id="request-popup" class="popup">
+                        <div class="popup-content">
+                            <span class="close" onclick="closeRequestForm()">X</span>
+                            <h3 id="popup-title">New request to ...</h3>
+                            <div class="type">
+                                <label>Type of request</label>
+                                <input type="text" placeholder="Type...">
+                            </div>
+                            <div class="comment">
+                                <label>Comments</label>
+                                <textarea placeholder="Type comment..."></textarea>
+                            </div>
+                            <button class="confirm">Confirm and assign</button>
+                        </div>
+                    </div>
+                    <div class="info-links">
+                        <h3>Information link</h3>
+                        <div id="link-container">
+                            <input type="text" class="link-input" placeholder="Add link...">
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
         </div>
-
     </div>
 
     </div>
-
 </body>
 <script>
     const textarea = document.getElementById('details');
@@ -166,16 +195,41 @@
                 const lastInput = inputs[inputs.length - 1];
 
                 if (lastInput.value.trim() !== '') {
-                    // Δημιουργεί νέα input αν η τελευταία έχει κάτι
                     const newInput = document.createElement('input');
                     newInput.type = 'text';
-                    newInput.placeholder = 'Insert link ➕';
+                    newInput.placeholder = 'Add link...';
                     newInput.className = 'link-input';
                     container.appendChild(newInput);
                 }
             }
         });
     });
+</script>
+
+
+
+
+
+
+<script>
+    function openRequestForm() {
+        const select = document.getElementById('team-select');
+        const selectedValue = select.value;
+
+        if (selectedValue === '') {
+            alert("Παρακαλώ επίλεξε μια ομάδα.");
+            return;
+        }
+
+        document.getElementById('popup-title').textContent = `New request to ${selectedValue}`;
+        document.getElementById('popup').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    }
+
+    function closeRequestForm() {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    }
 </script>
 
 </html>
