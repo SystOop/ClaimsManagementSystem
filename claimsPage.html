@@ -162,30 +162,16 @@
                     </div>
                 </div>
 
-                <script>
-                    function showPopup() {
-                        const teamSelect = document.getElementById("teamSelect");
-                        const chosenTeam = teamSelect.value;
-                        document.getElementById("chosenTeamName").textContent = chosenTeam;
-                        document.getElementById("popupOverlay").style.display = "flex";
-                    }
-
-                    function closePopup() {
-                        document.getElementById("popupOverlay").style.display = "none";
-                    }
-                </script>
-
-
-
-
-
-
 
 
                 <div class="info-links">
                     <h3>Information link</h3>
                     <div id="link-container">
-                        <input type="text" class="link-input" placeholder="Add link...">
+                        <div class="link-wrapper">
+                            <input type="text" class="link-input" placeholder="Add link..."
+                                oninput="toggleRemoveButton(this)">
+                            <span class="remove-btn" onclick="removeLink(this)">✖</span>
+                        </div>
                     </div>
                 </div>
 
@@ -199,6 +185,8 @@
 
     </div>
 </body>
+
+
 <script>
     const textarea = document.getElementById('details');
     const output = document.getElementById('details-output');
@@ -214,21 +202,64 @@
 
         container.addEventListener('input', function (e) {
             if (e.target.classList.contains('link-input')) {
-                const inputs = container.querySelectorAll('.link-input');
-                const lastInput = inputs[inputs.length - 1];
+                toggleRemoveButton(e.target); // Ενημερώνουμε την εμφάνιση του Χ
+
+                const wrappers = container.querySelectorAll('.link-wrapper');
+                const lastInput = wrappers[wrappers.length - 1].querySelector('.link-input');
 
                 if (lastInput.value.trim() !== '') {
+                    const newWrapper = document.createElement('div');
+                    newWrapper.className = 'link-wrapper';
+
                     const newInput = document.createElement('input');
                     newInput.type = 'text';
                     newInput.placeholder = 'Add link...';
                     newInput.className = 'link-input';
-                    container.appendChild(newInput);
+                    newInput.setAttribute('oninput', 'toggleRemoveButton(this)');
+
+                    const removeBtn = document.createElement('span');
+                    removeBtn.className = 'remove-btn';
+                    removeBtn.textContent = '✖';
+                    removeBtn.onclick = function () {
+                        removeLink(removeBtn);
+                    };
+
+                    newWrapper.appendChild(newInput);
+                    newWrapper.appendChild(removeBtn);
+                    container.appendChild(newWrapper);
                 }
             }
         });
     });
+
+    function toggleRemoveButton(input) {
+        const wrapper = input.parentElement;
+        const removeBtn = wrapper.querySelector('.remove-btn');
+        if (input.value.trim() !== '') {
+            removeBtn.style.display = 'inline';
+        } else {
+            removeBtn.style.display = 'none';
+        }
+    }
+
+    function removeLink(button) {
+        const wrapper = button.parentElement;
+        wrapper.remove();
+    }
 </script>
 
+<script>
+    function showPopup() {
+        const teamSelect = document.getElementById("teamSelect");
+        const chosenTeam = teamSelect.value;
+        document.getElementById("chosenTeamName").textContent = chosenTeam;
+        document.getElementById("popupOverlay").style.display = "flex";
+    }
+
+    function closePopup() {
+        document.getElementById("popupOverlay").style.display = "none";
+    }
+</script>
 
 
 

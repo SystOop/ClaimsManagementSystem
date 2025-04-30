@@ -14,3 +14,4 @@ function openRequestForm() {
 function closeRequestForm() {
     document.getElementById('request-popup').style.display = 'none';
 }
+

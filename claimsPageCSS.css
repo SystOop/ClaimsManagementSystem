@@ -270,12 +270,30 @@ textarea {
     background: white;
 }
 
+.link-wrapper {
+    position: relative;
+    margin-top: 10px;
+}
 
 .link-input {
     width: 100%;
-    padding: 8px 10px;
-    margin-top: 10px;
+    padding: 8px 30px 8px 10px;
+    /* χώρο για το Χ */
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.remove-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #ccc;
+    font-weight: bold;
+    font-size: 14px;
+    display: none;
+    /* Απόκρυψη από την αρχή */
 }
