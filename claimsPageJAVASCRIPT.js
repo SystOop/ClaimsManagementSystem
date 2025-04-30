@@ -8,11 +8,9 @@ function openRequestForm() {
     }
 
     document.getElementById('popup-title').textContent = `New request to ${selectedValue}`;
-    document.getElementById('popup').style.display = 'block';
-    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('request-popup').style.display = 'block';
 }
 
 function closeRequestForm() {
-    document.getElementById('popup').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('request-popup').style.display = 'none';
 }
