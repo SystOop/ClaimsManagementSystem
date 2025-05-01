@@ -129,18 +129,23 @@
             </div>
 
             <div class="lower-right-panel">
-
-
-
-                <div id="requests">
-                    <label for="teamSelect">Choose team to assert the request...</label>
-                    <select id="teamSelect">
-                        <option value="Garage">Garage</option>
-                        <option value="Lawyer">Lawyer</option>
-                        <option value="Settler">Settler</option>
-                        <option value="Adjuster">Adjuster</option>
-                    </select>
-                    <button onclick="showPopup()">OK</button>
+                <!--Hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+                <div class="request">
+                    <h3>Request</h3>
+                    <div id="req-container">
+                        <div class="req-wrapper">
+                            <div id="requests" colour = #ccc>
+        
+                                <select id="teamSelect" >
+                                    <option value="Garage">Garage</option>
+                                    <option value="Lawyer">Lawyer</option>
+                                    <option value="Settler">Settler</option>
+                                    <option value="Adjuster">Adjuster</option>
+                                </select>
+                                <button onclick="showPopup()">OK</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Popup -->
@@ -150,17 +155,18 @@
 
                         <!-- μέσα στη .requests -->
                         <div class="popup-content">
-                            <label>Type of request</label>
-                            <input type="text" placeholder="Type...">
-                            <label>Comments</label>
+                            <p><label>Type of request</label></p>
+                            <p><input type="text" placeholder="Type..."></p>
+                            <p><label>Comments</label></p>
                             <textarea placeholder="Type comment..."></textarea>
                             <button class="confirm">Confirm and assign</button>
-
+                
                             <button class="close" onclick="closePopup()">Close</button> <!-- Popup -->
                         </div>
-
+                
                     </div>
                 </div>
+
 
 
 
@@ -174,6 +180,7 @@
                         </div>
                     </div>
                 </div>
+
 
 
 
