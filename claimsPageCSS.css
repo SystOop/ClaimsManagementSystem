@@ -253,19 +253,46 @@ textarea {
     font-family: 'Inter', serif;
 }
 
+
 #requests {
-    border: 1px solid;
-    padding: 10px;
-    width: 200px;
-    border-radius: 10px;
-    font-family: 'Inter', serif;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 250px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-#requests select,
-#requests button {
-    margin-top: 10px;
-    width: 100%;
+#requests select {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+    font-size: 14px;
+    font-family: inherit;
 }
+
+#requests button {
+    background-color: #2a5d8f;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#requests button:hover {
+    background-color: #1e4670;
+    transform: scale(1.02);
+}
+
+
 
 .team-output {
     margin-top: 20px;
@@ -274,8 +301,35 @@ textarea {
 
 .confirm,
 .close {
-    font-family: 'Inter', serif;
-    background: white;
+    font-family: 'Inter', sans-serif;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.confirm {
+    background-color: #2a5d8f;
+    color: white;
+}
+
+.confirm:hover {
+    background-color: #1e4670;
+    transform: scale(1.03);
+}
+
+.close {
+    background-color: #ccc;
+    color: #333;
+    margin-left: 10px;
+}
+
+.close:hover {
+    background-color: #aaa;
+    transform: scale(1.03);
 }
 
 .link-wrapper {
