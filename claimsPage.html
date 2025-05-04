@@ -8,18 +8,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Headland+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kameron&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-
-
 </head>
 
 <body>
-    <!--header-->
+    <!-- Header section with page title, user info, navigation buttons, and search bar -->
     <div class="header">
         <div class="left">
             <h1>Claims<br>Management</h1>
         </div>
+
+        <div class="center">
+            <button class="header-btn new-claim" onclick="createNewClaim()">+ Claim</button>
+            <button class="header-btn dashboard" onclick="goToDashboard()">Dashboard</button>
+        </div>
+
         <div class="right">
             <div class="top-row">
                 <div class="username">
@@ -41,12 +44,13 @@
                         </button>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
-    <!--mainPart-->
+
+    <!-- Main content area -->
     <div class="mainPart">
+        <!-- Brief information about the claim -->
         <div class="brief-infos">
             <h2>Βrief Infos</h2>
             <p><strong>Claim number:</strong> 12345</p>
@@ -62,6 +66,8 @@
             <p><strong>Fraud Risk:</strong> Low</p>
             <p><strong>Blame:</strong> 100%</p>
         </div>
+
+        <!-- Folder information and involved parties -->
         <div class="folder-infos">
             <h2>Folder Infos</h2>
             <table>
@@ -74,7 +80,9 @@
                 </thead>
             </table>
 
+            <!-- People involved in the claim -->
             <div class="involved">
+                <!-- Repeatable person blocks -->
                 <div class="person">
                     <div class="involved-title">Involved 01</div>
                     <div class="person-info">
@@ -90,33 +98,37 @@
                 <div class="person">
                     <div class="involved-title">Involved 02</div>
                     <div class="person-info">
-                        <p>Name:</p>
-                        <p>Surname:</p>
-                        <p>Phone:</p>
-                        <p>Email:</p>
-                        <p>Label number:</p>
-                        <p>Insurance:</p>
-                        <p>Blame:</p>
+                        <p>Name: Konstantinos</p>
+                        <p>Surname: Efthimiou</p>
+                        <p>Phone:6999990100</p>
+                        <p>Email:k.efthimiou@gmail.gr</p>
+                        <p>Label number: OOO-0002</p>
+                        <p>Insurance:B Insurance</p>
+                        <p>Blame: 0% </p>
                     </div>
                 </div>
                 <div class="person">
                     <div class="involved-title">Involved 03</div>
                     <div class="person-info">
-                        <p>Name:</p>
-                        <p>Surname:</p>
-                        <p>Phone:</p>
-                        <p>Email:</p>
-                        <p>Label number:</p>
-                        <p>Insurance:</p>
-                        <p>Blame:</p>
+                        <p>Name: Natasha</p>
+                        <p>Surname: Mali</p>
+                        <p>Phone:690000001</p>
+                        <p>Email:n.mali@gmail.com</p>
+                        <p>Label number:AAA-0000</p>
+                        <p>Insurance: B Insurance</p>
+                        <p>Blame: 0%</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Free text area for details -->
             <div class="details">
                 <label for="details">Details</label>
                 <textarea id="details" placeholder="Add details..."></textarea>
             </div>
         </div>
+
+        <!-- Right panel with status and actions -->
         <div class="right-panel">
             <div class="uper-right-panel">
                 <div class="status">
@@ -129,14 +141,13 @@
             </div>
 
             <div class="lower-right-panel">
-                <!--Hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-->
+                <!-- Request assignment dropdown -->
                 <div class="request">
                     <h3>Request</h3>
                     <div id="req-container">
                         <div class="req-wrapper">
-                            <div id="requests" colour = #ccc>
-        
-                                <select id="teamSelect" >
+                            <div id="requests" colour="#ccc">
+                                <select id="teamSelect">
                                     <option value="Garage">Garage</option>
                                     <option value="Lawyer">Lawyer</option>
                                     <option value="Settler">Settler</option>
@@ -148,52 +159,38 @@
                     </div>
                 </div>
 
-                <!-- Popup -->
+                <!-- Popup for confirming the request -->
                 <div class="popup-overlay" id="popupOverlay">
                     <div class="popup">
                         <p>New request to <strong id="chosenTeamName"></strong></p>
-
-                        <!-- μέσα στη .requests -->
                         <div class="popup-content">
                             <p><label>Type of request</label></p>
                             <p><input type="text" placeholder="Type..."></p>
                             <p><label>Comments</label></p>
                             <textarea placeholder="Type comment..."></textarea>
-                            <button class="confirm"  onclick="closePopup()">Confirm and assign</button>
-                
-                            <button class="close" onclick="closePopup()">Close</button> <!-- Popup -->
+                            <button class="confirm" onclick="closePopup()">Confirm and assign</button>
+                            <button class="close" onclick="closePopup()">Close</button> 
                         </div>
-                
                     </div>
                 </div>
 
-
-
-
+                <!-- Section to manage info links -->
                 <div class="info-links">
                     <h3>Information link</h3>
                     <div id="link-container">
                         <div class="link-wrapper">
-                            <input type="text" class="link-input" placeholder="Add link..."
-                                oninput="toggleRemoveButton(this)">
+                            <input type="text" class="link-input" placeholder="Add link..." oninput="toggleRemoveButton(this)">
                             <span class="remove-btn" onclick="removeLink(this)">✖</span>
                         </div>
                     </div>
                 </div>
-
-
-
-
             </div>
         </div>
-
-    </div>
     </div>
 
-    </div>
 </body>
 
-
+<!-- Live update for details textarea -->
 <script>
     const textarea = document.getElementById('details');
     const output = document.getElementById('details-output');
@@ -203,13 +200,14 @@
     });
 </script>
 
+<!-- Dynamic creation/removal of information link inputs -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const container = document.getElementById('link-container');
 
         container.addEventListener('input', function (e) {
             if (e.target.classList.contains('link-input')) {
-                toggleRemoveButton(e.target); // Ενημερώνουμε την εμφάνιση του Χ
+                toggleRemoveButton(e.target); 
 
                 const wrappers = container.querySelectorAll('.link-wrapper');
                 const lastInput = wrappers[wrappers.length - 1].querySelector('.link-input');
@@ -242,11 +240,7 @@
     function toggleRemoveButton(input) {
         const wrapper = input.parentElement;
         const removeBtn = wrapper.querySelector('.remove-btn');
-        if (input.value.trim() !== '') {
-            removeBtn.style.display = 'inline';
-        } else {
-            removeBtn.style.display = 'none';
-        }
+        removeBtn.style.display = input.value.trim() !== '' ? 'inline' : 'none';
     }
 
     function removeLink(button) {
@@ -255,6 +249,7 @@
     }
 </script>
 
+<!-- Popup logic -->
 <script>
     function showPopup() {
         const teamSelect = document.getElementById("teamSelect");
@@ -267,10 +262,5 @@
         document.getElementById("popupOverlay").style.display = "none";
     }
 </script>
-
-
-
-
-
 
 </html>
