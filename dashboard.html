@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claims Management</title>
+  <link rel="stylesheet" href="Dashboard.css" />
+  <link rel="stylesheet" href="claimsPageCSS.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+
+<!-- Header section with page title, user info, navigation buttons, and search bar -->
+<div class="header">
+  <div class="left">
+    <h1>Claims<br>Management</h1>
+  </div>
+
+  <div class="center">
+    <button class="header-btn new-claim" onclick="createNewClaim()">+ Claim</button>
+    <button class="header-btn dashboard" onclick="goToDashboard()">Dashboard</button>
+  </div>
+
+  <div class="right">
+    <div class="top-row">
+      <div class="username">
+        <i class="fa-solid fa-user"></i>
+        <h2>username</h2>
+      </div>
+    </div>
+
+    <div class="bottom-row">
+      <div class="notification">
+        <i class="fas fa-bell"></i>
+        <span class="badge">3</span>
+      </div>
+      <form class="search-form" action="search-results.html" method="GET">
+        <div class="search-box">
+          <input type="text" name="query" placeholder="Search...">
+          <button type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Task Summary Boxes -->
+<section class="task-summary">
+  <div class="box in-progress">In Progress<br><span>4</span></div>
+  <div class="box on-hold">On Hold<br><span>2</span></div>
+  <div class="box completed">Completed<br><span>20</span></div>
+  <div class="box total">Total Tasks<br><span>26</span></div>
+</section>
+
+<!-- Task Table -->
+<section class="task-table">
+  <div class="task-header">
+    <div class="task-tabs">
+      <button class="tab-button active" data-tab="my">My Tasks</button>
+      <button class="tab-button" data-tab="team">My Team's Tasks</button>
+    </div>
+
+    <div class="task-controls">
+      <select id="sortOptions">
+        <option value="date">Sort by Date</option>
+        <option value="priority" selected>Sort by Priority</option>
+      </select>
+      <button class="header-btn new-task" onclick="addNewTask()">+ New Task</button>
+    </div>
+  </div>
+
+
+  <div id="my-tasks">
+  <table>
+    <thead>
+    <tr>
+      <th></th>
+      <th>Task Name</th>
+      <th>Priority</th>
+      <th>Description</th>
+      <th>Deadline</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><input type="checkbox" /></td>
+      <td>Call client</td>
+      <td class="high">High</td>
+      <td>claim No:<br>Ask for a copy of driving licence</td>
+      <td>20/05/2025</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" /></td>
+      <td>Send follow-up email</td>
+      <td class="medium">Medium</td>
+      <td>Remind about next meeting</td>
+      <td>08/05/2025</td>
+    </tr>
+
+    <tr>
+      <td><input type="checkbox" /></td>
+      <td>Organize files</td>
+      <td class="low">Low</td>
+      <td>Rearrange folders in shared drive</td>
+      <td>15/05/2025</td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div id="team-tasks" style="display: none;">
+    <table>
+      <thead>
+      <tr>
+        <th></th>
+        <th>Task Name</th>
+        <th>Priority</th>
+        <th>Description</th>
+        <th>Deadline</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>Review claim documents</td>
+        <td class="high">High</td>
+        <td>Double-check uploaded PDFs</td>
+        <td>10/05/2025</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>Team meeting</td>
+        <td class="low">Low</td>
+        <td>Schedule sync for Friday</td>
+        <td>12/05/2025</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Modal για νέο task -->
+<div id="taskModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2><span style="font-weight: 600; font-size: 18px;">Δημιουργία Task</span></h2>
+    <form id="taskForm">
+      <label>Task Name:</label>
+      <input type="text" id="taskName" required />
+
+      <label>Priority:</label>
+      <select id="taskPriority">
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+
+      <label>Description:</label>
+      <textarea id="taskDescription" rows="3" required></textarea>
+
+      <label>Deadline:</label>
+      <input type="date" id="taskDeadline" required />
+
+      <button type="submit">Προσθήκη</button>
+    </form>
+  </div>
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

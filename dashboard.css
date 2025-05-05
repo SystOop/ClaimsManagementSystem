@@ -1,0 +1,265 @@
+/* Κεντράρισμα περιεχομένου */
+.task-summary, .task-table {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Στυλ για τα κουμπιά */
+.task-header {
+  display: flex;
+  flex-direction: column; /* Αλλάξαμε την κατεύθυνση για να έχουμε κάθε γραμμή με τα στοιχεία */
+  margin-bottom: 15px;
+}
+
+.task-tabs {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.tab-button {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.tab-button:hover {
+  background-color: #ddd;
+}
+
+.tab-button.active {
+  background-color: #1b4b77;
+  color: white;
+  border-color: #007bff;
+}
+
+.task-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px; /* Χώρισμα μεταξύ των στοιχείων */
+}
+
+.task-controls select,
+.task-controls .new-task {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Στυλ για την περιοχή Summary των tasks */
+.task-summary {
+  display: flex;
+  justify-content: space-around;
+}
+
+.task-summary .box {
+  color: white;
+  width: 160px; /* Αύξηση του πλάτους για πιο ισχυρή εμφάνιση */
+  padding: 20px;
+  text-align: center;
+  border-radius: 12px; /* Στρογγυλεμένες γωνίες */
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Προσθήκη σκίασης */
+  transition: transform 0.2s ease; /* Εφέ hover */
+}
+
+
+/* Χρώματα για τα διαφορετικά status */
+.in-progress { background-color: #8e243e; }
+.on-hold     { background-color: #607d8b; }
+.completed   { background-color: #00695c; }
+.total       { background-color: #5e35b1; }
+
+/* Στυλ για το νέο κουμπί Task */
+.header-btn.new-task {
+  background-color: #1e88e5;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.header-btn.new-task:hover {
+  background-color: #1e88e5;
+}
+
+/* Στυλ για τον πίνακα tasks */
+.task-table table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: white;
+  border-radius: 12px; /* Στρογγυλεμένες γωνίες */
+  overflow: hidden;
+  box-shadow: 0 0 6px rgba(0,0,0,0.05); /* Ελαφριά σκίαση */
+}
+
+.task-table th, .task-table td {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px 14px;
+  text-align: left;
+}
+
+.task-table thead {
+  background-color: #2a5d8f;
+  color: white;
+}
+
+.task-table tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* Χρώματα για τις προτεραιότητες */
+.task-table .high {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.task-table .medium {
+  color: #f57c00;
+}
+
+.task-table .low {
+  color: #1976d2;
+}
+
+/* Στυλ για το Select (Sort By) */
+#sortOptions {
+  padding: 10px 15px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+#sortOptions:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#sortOptions:hover {
+  border-color: #007bff;
+  background-color: #f5f5f5;
+}
+
+#sortOptions option {
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* Στυλ για το Modal*/
+/* Modal container (overlay) */
+/* Γενικό περιτύλιγμα modal */
+/* Modal πλήρης κάλυψη */
+.modal {
+  display: none; /* Αρχικά κρυφό */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Περιεχόμενο modal στο κέντρο */
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transition: all 0.3s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+
+
+/* Τίτλος modal */
+.modal-content h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #1e4b70;;
+  text-align: center;
+}
+
+/* Κουμπί κλεισίματος */
+.close-btn {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+}
+
+.close-btn:hover {
+  color: #ff0000; /* Κόκκινο χρώμα κατά το hover */
+}
+
+
+/* Styling της φόρμας */
+#taskForm label {
+  margin-top: 10px;
+  font-weight: 600;
+  display: block;
+}
+
+#taskForm input[type="text"],
+#taskForm input[type="date"],
+#taskForm select,
+#taskForm textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 12px;
+  font-size: 14px;
+  resize: vertical;
+}
+
+/* Ειδικό styling για το textarea */
+#taskDescription {
+  min-height: 80px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Κουμπί υποβολής */
+#taskForm button {
+  background-color: #2a5d8f;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#taskForm button:hover {
+  background-color: #1e4b70;
+}
+
