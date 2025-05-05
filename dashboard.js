@@ -5,11 +5,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeBtn = document.querySelector(".close-btn");
   const newTaskBtn = document.querySelector(".new-task");
 
+  // Function to parse date from the format dd/mm/yyyy
   function parseDate(text) {
     const [day, month, year] = text.trim().split("/").map(Number);
     return new Date(year, month - 1, day);
   }
 
+  // Function to sort tasks by priority or deadline
   function sortTasks(criteria, tbody) {
     const rows = Array.from(tbody.querySelectorAll("tr"));
     const activeRows = rows.filter(row => !row.classList.contains("completed"));
@@ -21,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const aDate = parseDate(a.children[4].textContent);
       const bDate = parseDate(b.children[4].textContent);
 
+      // Sorting by priority and then by deadline
       if (criteria === "priority") {
         return aPrio - bPrio || aDate - bDate;
       } else {
@@ -28,10 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+    // Reorder the rows in the table
     tbody.innerHTML = "";
     [...activeRows, ...completedRows].forEach(row => tbody.appendChild(row));
   }
 
+  // Function to update task counts in the summary
   function updateCounts() {
     const taskTable = document.querySelector("#my-tasks tbody");
     const rows = [...taskTable.querySelectorAll("tr")];
@@ -49,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".box.total span").textContent = rows.length;
   }
 
+  // Function to initialize task tables with event listeners
   function initTaskTable(tbody, updateCount = false) {
     let pressTimer = null;
     let longPress = false;
@@ -86,6 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return;
         }
 
+        // Mark task as completed or on-hold
         if (row.classList.contains("completed") || row.classList.contains("on-hold")) {
           checkbox.checked = false;
           checkbox.indeterminate = false;
@@ -105,6 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+    // Initial sort and count update
     sortTasks(sortSelect.value, tbody);
     if (updateCount) updateCounts();
   }
@@ -112,16 +120,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const myTbody = document.querySelector("#my-tasks tbody");
   const teamTbody = document.querySelector("#team-tasks tbody");
 
+  // Initialize task tables for both personal and team tasks
   initTaskTable(myTbody, true);
   initTaskTable(teamTbody, false);
 
+  // Event listener for sorting tasks based on selected criteria
   sortSelect.addEventListener("change", () => {
     const activeTab = document.querySelector(".tab-button.active").dataset.tab;
     const tbody = document.querySelector(`#${activeTab}-tasks tbody`);
     sortTasks(sortSelect.value, tbody);
   });
 
-  // Tabs
+  // Tabs functionality to switch between "My Tasks" and "Team Tasks"
   const myTasksSection = document.getElementById("my-tasks");
   const teamTasksSection = document.getElementById("team-tasks");
 
@@ -140,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Δεξί Κλικ για Ανάθεση στην Ομάδα
+  // Right-click context menu for assigning task to team
   function assignToTeam(row) {
     const teamTbody = document.querySelector("#team-tasks tbody");
     const taskName = row.querySelector("td:nth-child(2)").textContent;
@@ -163,6 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCounts();
   }
 
+  // Function to add right-click menu on "My Tasks" table rows
   function addRightClickMenu() {
     const myTasksTbody = document.querySelector("#my-tasks tbody");
 
@@ -197,7 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   addRightClickMenu();
 
-  // Modal εμφάνιση/απόκρυψη
+  // Modal display/hide functionality
   newTaskBtn.addEventListener("click", () => {
     modal.style.display = "flex";
   });
@@ -206,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.style.display = "none";
   });
 
-  // Προσθήκη Task
+  // Adding new task to the table
   document.getElementById("taskForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -234,6 +245,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updateSummary();
   });
 
+  // Function to update task summary
   function updateSummary() {
     const totalTasksBox = document.querySelector("#totalTasks");
     const inProgressBox = document.querySelector("#inProgressTasks");
@@ -255,11 +267,13 @@ document.addEventListener("DOMContentLoaded", function () {
     inProgressBox.textContent = `In Progress: ${inProgressTasks}`;
   }
 
+  // Function to format date in Greek format (dd/mm/yyyy)
   function formatDate(dateStr) {
     const date = new Date(dateStr);
     return date.toLocaleDateString("el-GR");
   }
 
+  // Function to capitalize the first letter of a string
   function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }

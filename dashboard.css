@@ -15,7 +15,7 @@ body {
 .container {
   flex-grow: 1;
   display: flex;
-  min-height: 0; /* απαραίτητο για να μη καταρρεύσει το flex-child */
+  min-height: 0;
 }
 
 .main-content {
@@ -23,17 +23,16 @@ body {
   overflow-y: auto;
 }
 
-/* Κεντράρισμα περιεχομένου */
 .task-summary, .task-table {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Στυλ για τα κουμπιά */
+
 .task-header {
   display: flex;
-  flex-direction: column; /* Αλλάξαμε την κατεύθυνση για να έχουμε κάθε γραμμή με τα στοιχεία */
+  flex-direction: column;
   margin-bottom: 15px;
 }
 
@@ -67,7 +66,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 10px; /* Χώρισμα μεταξύ των στοιχείων */
+  gap: 10px;
 }
 
 .task-controls select,
@@ -77,7 +76,6 @@ body {
   cursor: pointer;
 }
 
-/* Στυλ για την περιοχή Summary των tasks */
 .task-summary {
   display: flex;
   justify-content: space-around;
@@ -85,23 +83,20 @@ body {
 
 .task-summary .box {
   color: white;
-  width: 160px; /* Αύξηση του πλάτους για πιο ισχυρή εμφάνιση */
+  width: 160px;
   padding: 20px;
   text-align: center;
-  border-radius: 12px; /* Στρογγυλεμένες γωνίες */
+  border-radius: 12px;
   font-weight: bold;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Προσθήκη σκίασης */
-  transition: transform 0.2s ease; /* Εφέ hover */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
 }
 
-
-/* Χρώματα για τα διαφορετικά status */
 .in-progress { background-color: #8e243e; }
 .on-hold     { background-color: #607d8b; }
 .completed   { background-color: #00695c; }
 .total       { background-color: #5e35b1; }
 
-/* Στυλ για το νέο κουμπί Task */
 .header-btn.new-task {
   background-color: #1e88e5;
   color: white;
@@ -118,15 +113,14 @@ body {
   background-color: #1e88e5;
 }
 
-/* Στυλ για τον πίνακα tasks */
 .task-table table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
   background-color: white;
-  border-radius: 12px; /* Στρογγυλεμένες γωνίες */
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 0 6px rgba(0,0,0,0.05); /* Ελαφριά σκίαση */
+  box-shadow: 0 0 6px rgba(0,0,0,0.05);
 }
 
 .task-table th, .task-table td {
@@ -144,8 +138,6 @@ body {
   border-bottom: none;
 }
 
-
-/* Χρώματα για τις προτεραιότητες */
 .task-table .high {
   color: #d32f2f;
   font-weight: bold;
@@ -159,7 +151,6 @@ body {
   color: #1976d2;
 }
 
-/* Στυλ για το Select (Sort By) */
 #sortOptions {
   padding: 10px 15px;
   font-size: 14px;
@@ -187,12 +178,8 @@ body {
   font-size: 14px;
 }
 
-/* Στυλ για το Modal*/
-/* Modal container (overlay) */
-/* Γενικό περιτύλιγμα modal */
-/* Modal πλήρης κάλυψη */
 .modal {
-  display: none; /* Αρχικά κρυφό */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -204,7 +191,6 @@ body {
   justify-content: center;
 }
 
-/* Περιεχόμενο modal στο κέντρο */
 .modal-content {
   background-color: #fff;
   padding: 30px;
@@ -218,9 +204,6 @@ body {
   overflow-y: auto;
 }
 
-
-
-/* Τίτλος modal */
 .modal-content h2 {
   font-size: 20px;
   margin-bottom: 15px;
@@ -228,7 +211,6 @@ body {
   text-align: center;
 }
 
-/* Κουμπί κλεισίματος */
 .close-btn {
   font-size: 20px;
   font-weight: bold;
@@ -242,11 +224,9 @@ body {
 }
 
 .close-btn:hover {
-  color: #ff0000; /* Κόκκινο χρώμα κατά το hover */
+  color: #ff0000;
 }
 
-
-/* Styling της φόρμας */
 #taskForm label {
   margin-top: 10px;
   font-weight: 600;
@@ -266,14 +246,12 @@ body {
   resize: vertical;
 }
 
-/* Ειδικό styling για το textarea */
 #taskDescription {
   min-height: 80px;
   max-height: 300px;
   overflow-y: auto;
 }
 
-/* Κουμπί υποβολής */
 #taskForm button {
   background-color: #2a5d8f;
   color: white;
