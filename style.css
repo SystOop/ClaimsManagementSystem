@@ -18,10 +18,10 @@ body {
   
   .login-box {
     background: rgba(0, 0, 0, 0.2);
-    padding: 30px 40px;
+    padding: 60px 50px;
     border-radius: 40px;
     color: white;
-    width: 300px;
+    width: 400px;
     text-align: center;
   }
   

@@ -4,46 +4,49 @@
   <meta charset="UTF-8">
   <title>Claims Management</title>
   <link rel="stylesheet" href="newClaimStyle.css">
+  <link rel="stylesheet" href="claimsPageCSS.css">
   <link href="https://fonts.googleapis.com/css2?family=Headland+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Kameron&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Top bar -->
-  <div class="header">
-      <div class="left">
-          <h1>Claims<br>Management</h1>
-      </div>
 
-      <div class="center">
-          <button class="header-btn new-claim">+ Claim</button>
-          <button class="header-btn dashboard">Dashboard</button>
-      </div>
-      <div class="right">
-          <div class="top-row">
-              <div class="username">
-                  <i class="fa-solid fa-user"></i>
-                  <h2>username</h2>
-              </div>
-          </div>
-
-          <div class="bottom-row">
-              <div class="notification">
-                  <i class="fas fa-bell"></i>
-                  <span class="badge">3</span>
-              </div>
-              <form class="search-form" action="search-results.html" method="GET">
-                  <div class="search-box">
-                      <input type="text" name="query" placeholder="Search...">
-                      <button type="submit">
-                          <i class="fa-solid fa-magnifying-glass"></i>
-                      </button>
-                  </div>
-              </form>
-          </div>
-      </div>
+<!-- Header section with page title, user info, navigation buttons, and search bar -->
+<div class="header">
+  <div class="left">
+    <h1>Claims<br>Management</h1>
   </div>
+
+  <div class="center">
+    <button class="header-btn new-claim" onclick="createNewClaim()">+ Claim</button>
+    <button class="header-btn dashboard" onclick="goToDashboard()">Dashboard</button>
+  </div>
+
+  <div class="right">
+    <div class="top-row">
+      <div class="username">
+        <i class="fa-solid fa-user"></i>
+        <h2>username</h2>
+      </div>
+    </div>
+
+    <div class="bottom-row">
+      <div class="notification">
+        <i class="fas fa-bell"></i>
+        <span class="badge">3</span>
+      </div>
+      <form class="search-form" action="search-results.html" method="GET">
+        <div class="search-box">
+          <input type="text" name="query" placeholder="Search...">
+          <button type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
   <!-- Side navigation and form -->
   <div class="container">
@@ -186,6 +189,6 @@
       </form>     
     </div>
   </div>
-  </div>
+  </div></div>
 </body>
 </html>
