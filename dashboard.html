@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Claims Management</title>
+
+  <!-- Linking external CSS files -->
   <link rel="stylesheet" href="dashboard.css" />
   <link rel="stylesheet" href="claimsPageCSS.css">
   <link rel="stylesheet" href="sidebar.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 </head>
 <body>
 
@@ -55,120 +56,127 @@
   </div>
 </div>
 
-
-
+<!-- Main container -->
 <div class="container">
-  <!-- Sidebar -->
-    <aside class="sidebar">
-      <a href="newClaim.html">
+  <!-- Sidebar section -->
+  <aside class="sidebar">
+    <!-- Link to the new claim page -->
+    <a href="newClaim.html">
       <button class="newClaim">+ new claim</button>
-        </a>
-      <ul class="claim-list">
-        <li><a href="claimsPage.html?claimId=10001" class="claim-link">claim 10001</a></li>
-        <li><a href="claimsPage.html?claimId=10002" class="claim-link">claim 10002</a></li>
-        <li><a href="claimsPage.html?claimId=10003" class="claim-link">claim 10003</a></li>
-        <li><a href="claimsPage.html?claimId=10004" class="claim-link">claim 10004</a></li>
-      </ul>
-    </aside>
+    </a>
 
+    <!-- List of claims with links -->
+    <ul class="claim-list">
+      <li><a href="claimsPage.html?claimId=10001" class="claim-link">claim 10001</a></li>
+      <li><a href="claimsPage.html?claimId=10002" class="claim-link">claim 10002</a></li>
+      <li><a href="claimsPage.html?claimId=10003" class="claim-link">claim 10003</a></li>
+      <li><a href="claimsPage.html?claimId=10004" class="claim-link">claim 10004</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main content section -->
   <div class="main-content">
-<!-- Task Summary Boxes -->
-<section class="task-summary">
-  <div class="box in-progress">In Progress<br><span>4</span></div>
-  <div class="box on-hold">On Hold<br><span>2</span></div>
-  <div class="box completed">Completed<br><span>20</span></div>
-  <div class="box total">Total Tasks<br><span>26</span></div>
-</section>
+    <!-- Task Summary Boxes -->
+    <section class="task-summary">
+      <div class="box in-progress">In Progress<br><span>4</span></div>
+      <div class="box on-hold">On Hold<br><span>2</span></div>
+      <div class="box completed">Completed<br><span>20</span></div>
+      <div class="box total">Total Tasks<br><span>26</span></div>
+    </section>
 
-<!-- Task Table -->
-<section class="task-table">
-  <div class="task-header">
-    <div class="task-tabs">
-      <button class="tab-button active" data-tab="my">My Tasks</button>
-      <button class="tab-button" data-tab="team">My Team's Tasks</button>
-    </div>
+    <!-- Task Table Section -->
+    <section class="task-table">
+      <div class="task-header">
+        <!-- Tabs for My Tasks and My Team's Tasks -->
+        <div class="task-tabs">
+          <button class="tab-button active" data-tab="my">My Tasks</button>
+          <button class="tab-button" data-tab="team">My Team's Tasks</button>
+        </div>
 
-    <div class="task-controls">
-      <select id="sortOptions">
-        <option value="date">Sort by Date</option>
-        <option value="priority" selected>Sort by Priority</option>
-      </select>
-      <button class="header-btn new-task" onclick="addNewTask()">+ New Task</button>
-    </div>
-  </div>
+        <!-- Controls for sorting tasks and adding new tasks -->
+        <div class="task-controls">
+          <select id="sortOptions">
+            <option value="date">Sort by Date</option>
+            <option value="priority" selected>Sort by Priority</option>
+          </select>
+          <button class="header-btn new-task" onclick="addNewTask()">+ New Task</button>
+        </div>
+      </div>
 
-  <div id="my-tasks">
-  <table>
-    <thead>
-    <tr>
-      <th></th>
-      <th>Task Name</th>
-      <th>Priority</th>
-      <th>Description</th>
-      <th>Deadline</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td><input type="checkbox" /></td>
-      <td>Call client</td>
-      <td class="high">High</td>
-      <td>claim No:<br>Ask for a copy of driving licence</td>
-      <td>20/05/2025</td>
-    </tr>
-    <tr>
-      <td><input type="checkbox" /></td>
-      <td>Send follow-up email</td>
-      <td class="medium">Medium</td>
-      <td>Remind about next meeting</td>
-      <td>08/05/2025</td>
-    </tr>
+      <!-- My Tasks Table -->
+      <div id="my-tasks">
+        <table>
+          <thead>
+          <tr>
+            <th></th>
+            <th>Task Name</th>
+            <th>Priority</th>
+            <th>Description</th>
+            <th>Deadline</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>Call client</td>
+            <td class="high">High</td>
+            <td>claim No:<br>Ask for a copy of driving licence</td>
+            <td>20/05/2025</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>Send follow-up email</td>
+            <td class="medium">Medium</td>
+            <td>Remind about next meeting</td>
+            <td>08/05/2025</td>
+          </tr>
 
-    <tr>
-      <td><input type="checkbox" /></td>
-      <td>Organize files</td>
-      <td class="low">Low</td>
-      <td>Rearrange folders in shared drive</td>
-      <td>15/05/2025</td>
-    </tr>
-    </tbody>
-  </table>
-  </div>
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>Organize files</td>
+            <td class="low">Low</td>
+            <td>Rearrange folders in shared drive</td>
+            <td>15/05/2025</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
 
-  <div id="team-tasks" style="display: none;">
-    <table>
-      <thead>
-      <tr>
-        <th></th>
-        <th>Task Name</th>
-        <th>Priority</th>
-        <th>Description</th>
-        <th>Deadline</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td><input type="checkbox" /></td>
-        <td>Review claim documents</td>
-        <td class="high">High</td>
-        <td>Double-check uploaded PDFs</td>
-        <td>10/05/2025</td>
-      </tr>
-      <tr>
-        <td><input type="checkbox" /></td>
-        <td>Team meeting</td>
-        <td class="low">Low</td>
-        <td>Schedule sync for Friday</td>
-        <td>12/05/2025</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+      <!-- Team's Tasks Table (Initially hidden) -->
+      <div id="team-tasks" style="display: none;">
+        <table>
+          <thead>
+          <tr>
+            <th></th>
+            <th>Task Name</th>
+            <th>Priority</th>
+            <th>Description</th>
+            <th>Deadline</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>Review claim documents</td>
+            <td class="high">High</td>
+            <td>Double-check uploaded PDFs</td>
+            <td>10/05/2025</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>Team meeting</td>
+            <td class="low">Low</td>
+            <td>Schedule sync for Friday</td>
+            <td>12/05/2025</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
   </div>
 </div>
 
-<!-- Modal for new task -->
+<!-- Modal for creating a new task -->
 <div id="taskModal" class="modal">
   <div class="modal-content">
     <span class="close-btn">&times;</span>
@@ -195,6 +203,8 @@
   </div>
 </div>
 
+<!-- Linking the script for task management -->
 <script src="dashboard.js"></script>
 </body>
 </html>
+
