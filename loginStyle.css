@@ -25,7 +25,6 @@ body {
   max-height: 600px;
   text-align: center;
   box-sizing: border-box;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -85,3 +84,4 @@ body {
 .login-btn:hover {
   background-color: #005bb5;
 }
+

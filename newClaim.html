@@ -11,192 +11,197 @@
 </head>
 <body>
 
-<!-- Header section with page title, user info, navigation buttons, and search bar -->
-<div class="header">
-  <div class="left">
-    <h1>Claims<br>Management</h1>
-  </div>
-
-  <div class="center">
-    <!-- Link to the new claim page -->
-    <a href="newClaim.html">
-      <button class="header-btn new-claim">+ Claim</button>
-    </a>
-
-    <!-- Link to the dashboard page -->
-    <a href="dashboard.html">
-      <button class="header-btn dashboard">Dashboard</button>
-    </a>
-  </div>
-
-  <div class="right">
-    <div class="top-row">
-      <div class="username">
-        <i class="fa-solid fa-user"></i>
-        <h2>username</h2>
-      </div>
+  <!-- Header section with page title, user info, navigation buttons, and search bar -->
+  <div class="header">
+    <div class="left">
+      <h1>Claims<br>Management</h1>
     </div>
 
-    <div class="bottom-row">
-      <div class="notification">
-        <i class="fas fa-bell"></i>
-        <span class="badge">3</span>
+    <div class="center">
+      <a href="newClaim.html">
+        <button class="header-btn new-claim">+ Claim</button>
+      </a>
+      <a href="dashboard.html">
+        <button class="header-btn dashboard">Dashboard</button>
+      </a>
+    </div>
+
+    <div class="right">
+      <div class="top-row">
+        <div class="username">
+          <i class="fa-solid fa-user"></i>
+          <h2>username</h2>
+        </div>
       </div>
-      <form class="search-form" action="search-results.html" method="GET">
-        <div class="search-box">
-          <input type="text" name="query" placeholder="Search...">
-          <button type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
+
+      <div class="bottom-row">
+        <div class="notification">
+          <i class="fas fa-bell"></i>
+          <span class="badge">3</span>
+        </div>
+        <form class="search-form" action="search-results.html" method="GET">
+          <div class="search-box">
+            <input type="text" name="query" placeholder="Search...">
+            <button type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content area -->
+  <main class="container">
+    <aside class="sidebar">
+      <a href="newClaim.html">
+        <button class="newClaim">+ new claim</button>
+      </a>
+      <ul class="claim-list">
+        <li><a href="claimsPage.html?claimId=10001" class="claim-link">claim 10001</a></li>
+        <li><a href="claimsPage.html?claimId=10002" class="claim-link">claim 10002</a></li>
+        <li><a href="claimsPage.html?claimId=10003" class="claim-link">claim 10003</a></li>
+        <li><a href="claimsPage.html?claimId=10004" class="claim-link">claim 10004</a></li>
+      </ul>
+    </aside>
+
+    <div class="main-content">
+      <form action="/submit-claim" method="POST">
+        <div class="form-row">
+          <div class="form-section">
+            <h3>Customer Information</h3>
+            <div class="form-group">
+              <label for="customer-name">Name</label>
+              <input type="text" id="customer-name" />
+            </div>
+            <div class="form-group">
+              <label for="customer-phone">Phone</label>
+              <input type="text" id="customer-phone" />
+            </div>
+            <div class="form-group">
+              <label for="customer-email">Email</label>
+              <input type="email" id="customer-email" />
+            </div>
+            <div class="form-group">
+              <label for="customer-label">Label Number</label>
+              <input type="text" id="customer-label" />
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Involved</h3>
+            <div class="form-group-inline">
+              <div class="form-group">
+                <label for="involved-name">Name</label>
+                <input type="text" id="involved-name" />
+              </div>
+              <div class="form-group">
+                <label for="involved-label">Label Number</label>
+                <input type="text" id="involved-label" />
+              </div>
+            </div>
+            <div class="form-group-inline">
+              <div class="form-group">
+                <label for="involved-phone">Phone</label>
+                <input type="text" id="involved-phone" />
+              </div>
+              <div class="form-group">
+                <label for="involved-insurance">Insurance</label>
+                <input type="text" id="involved-insurance" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="involved-email">Email</label>
+              <input type="email" id="involved-email" />
+            </div>
+            <button class="add-involved" type="button">add involved</button>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-section">
+            <h3>Claim Information</h3>
+            <div class="form-group-inline">
+              <div class="form-group">
+                <label for="claim-number">Claim Number</label>
+                <input type="text" id="claim-number" />
+              </div>
+              <div class="form-group">
+                <label for="assigned-to">Assigned to</label>
+                <select id="assigned-to" name="settler">
+                  <option value="">-- select --</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group-inline">
+              <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" />
+              </div>
+              <div class="form-group">
+                <label for="fraud-risk">Fraud Risk</label>
+                <select id="fraud-risk" name="fraud-risk">
+                  <option value="">-- Select Risk Level --</option>
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                  <option value="very high">Very high</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group-inline">
+              <div class="form-group">
+                <label for="date-incident">Date of Incident</label>
+                <input type="date" id="date-incident" />
+              </div>
+              <div class="form-group">
+                <label for="blame">Blame</label>
+                <select id="blame" name="blame">
+                  <option value="">-- Select --</option>
+                  <option value="0%">0%</option>
+                  <option value="25%">25%</option>
+                  <option value="50%">50%</option>
+                  <option value="75%">75%</option>
+                  <option value="100%">100%</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group-inline">
+              <div class="form-group">
+                <label for="status">Status</label>
+                <select id="status" name="status">
+                  <option value="">-- Select Status --</option>
+                  <option value="open">Open</option>
+                  <option value="in-progress">In Progress</option>
+                  <option value="closed">Closed</option>
+                  <option value="on-hold">On Hold</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="payout">Estimated Payout</label>
+                <input type="text" id="payout" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="priority">Priority</label>
+              <select id="priority" name="priority">
+                <option value="">-- Select --</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+
+            <button type="submit" class="simple-button">Submit Claim</button>
+          </div>
         </div>
       </form>
     </div>
-  </div>
-</div>
+  </main>
 
-  <!-- Side navigation and form -->
-<div class="container">
-  <aside class="sidebar">
-    <a href="newClaim.html">
-      <button class="newClaim">+ new claim</button>
-    </a>
-    <ul class="claim-list">
-      <li><a href="claimsPage.html?claimId=10001" class="claim-link">claim 10001</a></li>
-      <li><a href="claimsPage.html?claimId=10002" class="claim-link">claim 10002</a></li>
-      <li><a href="claimsPage.html?claimId=10003" class="claim-link">claim 10003</a></li>
-      <li><a href="claimsPage.html?claimId=10004" class="claim-link">claim 10004</a></li>
-    </ul>
-  </aside>
-
-  <div class="main-content">
-    <div class="form-row">
-      <div class="form-section">
-        <h3>Customer Information</h3>
-        <div class="form-group">
-          <label for="customer-name">Name</label>
-          <input type="text" id="customer-name" />
-        </div>
-        <div class="form-group">
-          <label for="customer-phone">Phone</label>
-          <input type="text" id="customer-phone" />
-        </div>
-        <div class="form-group">
-          <label for="customer-email">Email</label>
-          <input type="email" id="customer-email" />
-        </div>
-        <div class="form-group">
-          <label for="customer-label">Label Number</label>
-          <input type="text" id="customer-label" />
-        </div>
-      </div>
-
-      <div class="form-section">
-        <h3>Involved</h3>
-        <div class="form-group-inline">
-          <div class="form-group">
-            <label for="involved-name">Name</label>
-            <input type="text" id="involved-name" />
-          </div>
-          <div class="form-group">
-            <label for="involved-label">Label Number</label>
-            <input type="text" id="involved-label" />
-          </div>
-        </div>
-        <div class="form-group-inline">
-          <div class="form-group">
-            <label for="involved-phone">Phone</label>
-            <input type="text" id="involved-phone" />
-          </div>
-          <div class="form-group">
-            <label for="involved-insurance">Insurance</label>
-            <input type="text" id="involved-insurance" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="involved-email">Email</label>
-          <input type="email" id="involved-email" />
-        </div>
-        <button class="add-involved">add involved</button>
-      </div>
-    </div>
-  <div class="form-row">
-    <div class="form-section">
-      <h3>Claim Information</h3>
-      <div class="form-group-inline">
-        <div class="form-group">
-          <label for="claim-number">Claim Number</label>
-          <input type="text" id="claim-number" />
-        </div>
-        <div class="form-group">
-          <label for="assigned-to">Assigned to</label>
-          <select id="assigned-to" name="settler">
-            <option value="">-- select --</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group-inline">
-        <div class="form-group">
-          <label for="location">Location</label>
-          <input type="text" id="location" />
-        </div>
-        <div class="form-group">
-          <label for="fraud-risk">Fraud Risk</label>
-          <select id="fraud-risk" name="fraud-risk">
-            <option value="">-- Select Risk Level --</option>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-            <option value="very high">Very high</option>
-          </select>          
-        </div>
-      </div>
-      <div class="form-group-inline">
-        <div class="form-group">
-          <label for="date-incident">Date of Incident</label>
-          <input type="date" id="date-incident" />
-        </div>
-        <div class="form-group">
-          <label for="blame">Blame</label>
-          <select id="blame" name="blame">
-            <option value="">-- Select --</option>
-            <option value="0%">0%</option>
-            <option value="25%">25%</option>
-            <option value="50%">50%</option>
-            <option value="75%">75%</option>
-            <option value="100%">100%</option>            
-          </select>
-        </div>
-      </div>
-      <div class="form-group-inline">
-        <div class="form-group">
-          <label for="status">Status</label>
-          <select id="status" name="status">
-            <option value="">-- Select Status --</option>
-            <option value="open">Open</option>
-            <option value="in-progress">In Progress</option>
-            <option value="closed">Closed</option>
-            <option value="on-hold">On Hold</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="payout">Estimated Payout</label>
-          <input type="text" id="payout" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="priority">Priority</label>
-        <select id="priority" name="priority">
-          <option value="">-- Select --</option>
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
-        </select>
-      </div>
-      <form action="/submit-claim" method="POST">
-        <button type="submit" class="simple-button">Submit Claim</button>
-      </form>           
-    </div>
-  </div>
-  </div></div>
 </body>
 </html>
