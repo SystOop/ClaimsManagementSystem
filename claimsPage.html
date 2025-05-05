@@ -57,6 +57,7 @@
       </ul>
     </aside>
 
+  <!-- customer info -->
   <div class="main-content">
     <div class="form-row">
       <div class="form-section">
@@ -79,6 +80,7 @@
         </div>
       </div>
 
+      <!-- involved info -->
       <div class="form-section">
         <h3>Involved</h3>
         <div class="form-group-inline">
@@ -108,10 +110,11 @@
         <button class="add-involved">add involved</button>
       </div>
     </div>
-  <div class="form-row">
+
+    <!-- claim info -->
     <div class="form-section">
       <h3>Claim Information</h3>
-      <div class="form-group-inline">
+      <div class="form-row">
         <div class="form-group">
           <label for="claim-number">Claim Number</label>
           <input type="text" id="claim-number" />
@@ -123,7 +126,7 @@
           </select>
         </div>
       </div>
-      <div class="form-group-inline">
+      <div class="form-row">
         <div class="form-group">
           <label for="location">Location</label>
           <input type="text" id="location" />
@@ -139,7 +142,7 @@
           </select>          
         </div>
       </div>
-      <div class="form-group-inline">
+      <div class="form-row">
         <div class="form-group">
           <label for="date-incident">Date of Incident</label>
           <input type="date" id="date-incident" />
@@ -156,7 +159,7 @@
           </select>
         </div>
       </div>
-      <div class="form-group-inline">
+      <div class="form-row">
         <div class="form-group">
           <label for="status">Status</label>
           <select id="status" name="status">
@@ -172,7 +175,7 @@
           <input type="text" id="payout" />
         </div>
       </div>
-      <div class="form-group-inline">
+      <div class="form-row">
         <div class="form-group">
           <label for="priority">Priority</label>
           <select id="priority" name="priority">
@@ -183,8 +186,10 @@
           </select>
         </div>
         <div class="form-actions">
-          <button type="submit" class="submit-button">Submit</button>
-        </div>        
+            <form action="/submit-claim" method="POST">
+              <button type="submit" class="submit-button">Submit Claim</button>
+            </form>
+          </div>          
       </div>   
     </div>
   </div>

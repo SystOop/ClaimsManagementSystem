@@ -236,9 +236,15 @@
     border-radius: 8px;
     margin-top: 10px;
     cursor: pointer;
-    margin-left: 350px;  
+    text-align: right
   }
-  
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+
   .submit-button {
     padding: 10px 15px;
     background-color: #2a5d8f;
@@ -247,15 +253,5 @@
     border-radius: 8px;
     cursor: pointer;
     text-align: right;
-    margin-left: 700px;
-    margin-top: 20px;
-    position: relative;
     display: flex;
-  }
-  
-  .submit-button:hover {
-    background-color: #2a5d8f;
-  }
-  
-  .form-row {
   }
