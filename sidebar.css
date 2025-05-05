@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #eaeaea;
+  padding: 20px;
+}
+
+.newClaim {
+  display: block;
+  background-color: #2e5e8c;
+  color: white;
+  font-size: 15px;
+  border: none;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.claim-list {
+  list-style: none;
+  padding: 0;
+}
+
+.claim-list li {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.claim-list li.active,
+.claim-list li:hover {
+  background-color: white;
+}
+
+.claim-link {
+  text-decoration: none;  /* Αφαιρεί την υπογράμμιση */
+  color: inherit;         /* Κάνει το χρώμα του link ίδιο με το χρώμα του γονικού στοιχείου */
+}
+

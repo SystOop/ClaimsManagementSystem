@@ -1,3 +1,28 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  flex-shrink: 0;
+}
+
+.container {
+  flex-grow: 1;
+  display: flex;
+  min-height: 0; /* απαραίτητο για να μη καταρρεύσει το flex-child */
+}
+
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
 /* Κεντράρισμα περιεχομένου */
 .task-summary, .task-table {
   max-width: 900px;
@@ -262,4 +287,23 @@
 #taskForm button:hover {
   background-color: #1e4b70;
 }
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #eaeaea;
+  padding: 20px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+
+
+
 

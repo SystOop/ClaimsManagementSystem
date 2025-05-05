@@ -1,3 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  background: #2a5d8f;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left h1 {
+  font-family: 'Kameron', serif;
+  font-size: 20px;
+  margin: 0;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  width: 100%;
+}
+
+
+.top-row,
+.bottom-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Username display with icon */
+.username {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+}
+
+.username i {
+  font-size: 15px;
+}
+
+.username h2 {
+  font-family: 'Inter', serif;
+  font-size: 14px;
+  margin: 0;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-box {
+  position: relative;
+  width: 150px;
+  height: 28px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 5px 30px 5px 10px;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.search-box button {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #888;
+}
+
+.notification {
+  position: relative;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background: red;
+  color: white;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 50%;
+  font-family: 'Inter', sans-serif;
+}
+
+.header .left h1 {
+  margin: 0;
+  font-family: 'Headland One', serif;
+  color: white;
+}
+
+/* Centered buttons in header */
+.header .center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px; 
+}
+
+.header-btn {
+  background-color: #c3c3c3;
+  color: black;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.header-btn:hover {
+  background-color: #677168;
+}
+
 .container {
   display: flex;
 }
@@ -113,17 +251,17 @@ label, input, select {
   min-width: 200px;
 }
 
-form button[type="submit"] {
-  background-color: #2e5e8c;
+.simple-button {
+  background-color: #2a5d8f;
   color: white;
-  padding: 8px 5px;
-  border: none;
-  border-radius: 5px;
-  font-family: 'Inter', sans-serif;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
   font-size: 14px;
+  border-radius: 6px;
   cursor: pointer;
-  width: 100%;
-  max-width: 150px;
-  text-align: center; 
 }
 
+.claim-link {
+  text-decoration: none;  /* Αφαιρεί την υπογράμμιση */
+  color: inherit;         /* Κάνει το χρώμα του link ίδιο με το χρώμα του γονικού στοιχείου */
+}

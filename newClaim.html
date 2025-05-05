@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Claims Management</title>
   <link rel="stylesheet" href="newClaimStyle.css">
-  <link rel="stylesheet" href="claimsPageCSS.css">
   <link href="https://fonts.googleapis.com/css2?family=Headland+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Kameron&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -19,8 +18,15 @@
   </div>
 
   <div class="center">
-    <button class="header-btn new-claim" onclick="createNewClaim()">+ Claim</button>
-    <button class="header-btn dashboard" onclick="goToDashboard()">Dashboard</button>
+    <!-- Link to the new claim page -->
+    <a href="newClaim.html">
+      <button class="header-btn new-claim">+ Claim</button>
+    </a>
+
+    <!-- Link to the dashboard page -->
+    <a href="dashboard.html">
+      <button class="header-btn dashboard">Dashboard</button>
+    </a>
   </div>
 
   <div class="right">
@@ -49,16 +55,18 @@
 </div>
 
   <!-- Side navigation and form -->
-  <div class="container">
-    <aside class="sidebar">
+<div class="container">
+  <aside class="sidebar">
+    <a href="newClaim.html">
       <button class="newClaim">+ new claim</button>
-      <ul class="claim-list">
-        <li>claim 10001</li>
-        <li>claim 10002</li>
-        <li>claim 10003</li>
-        <li>claim 10004</li>
-      </ul>
-    </aside>
+    </a>
+    <ul class="claim-list">
+      <li><a href="claimsPage.html?claimId=10001" class="claim-link">claim 10001</a></li>
+      <li><a href="claimsPage.html?claimId=10002" class="claim-link">claim 10002</a></li>
+      <li><a href="claimsPage.html?claimId=10003" class="claim-link">claim 10003</a></li>
+      <li><a href="claimsPage.html?claimId=10004" class="claim-link">claim 10004</a></li>
+    </ul>
+  </aside>
 
   <div class="main-content">
     <div class="form-row">
@@ -185,8 +193,8 @@
         </select>
       </div>
       <form action="/submit-claim" method="POST">
-        <button type="submit">Submit Claim</button>
-      </form>     
+        <button type="submit" class="simple-button">Submit Claim</button>
+      </form>           
     </div>
   </div>
   </div></div>

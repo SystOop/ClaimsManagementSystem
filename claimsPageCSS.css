@@ -17,6 +17,7 @@
     font-family: 'Kameron', serif;
     font-size: 20px;
     margin: 0;
+
 }
 
 .right {
@@ -151,6 +152,7 @@
     min-height: 90vh;
     box-sizing: border-box;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    line-height: 30px;
 }
 
 .brief-infos {
