@@ -1,196 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Claims Management</title>
-  <link rel="stylesheet" href="newClaimStyle.css">
-  <link href="https://fonts.googleapis.com/css2?family=Headland+One&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Kameron&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Claims Management</title>
+    <link rel="stylesheet" href="claimsPageCSS.css">
+    <link href="https://fonts.googleapis.com/css2?family=Headland+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kameron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <!-- Top bar -->
-  <div class="header">
-      <div class="left">
-          <h1>Claims<br>Management</h1>
-      </div>
+    <!-- Header section with page title, user info, navigation buttons, and search bar -->
+    <div class="header">
+        <div class="left">
+            <h1>Claims<br>Management</h1>
+        </div>
 
-      <div class="center">
-          <button class="header-btn new-claim">+ Claim</button>
-          <button class="header-btn dashboard">Dashboard</button>
-      </div>
-      <div class="right">
-          <div class="top-row">
-              <div class="username">
-                  <i class="fa-solid fa-user"></i>
-                  <h2>username</h2>
-              </div>
-          </div>
+        <div class="center">
+            <button class="header-btn new-claim" onclick="createNewClaim()">+ Claim</button>
+            <button class="header-btn dashboard" onclick="goToDashboard()">Dashboard</button>
+        </div>
 
-          <div class="bottom-row">
-              <div class="notification">
-                  <i class="fas fa-bell"></i>
-                  <span class="badge">3</span>
-              </div>
-              <form class="search-form" action="search-results.html" method="GET">
-                  <div class="search-box">
-                      <input type="text" name="query" placeholder="Search...">
-                      <button type="submit">
-                          <i class="fa-solid fa-magnifying-glass"></i>
-                      </button>
-                  </div>
-              </form>
-          </div>
-      </div>
-  </div>
+        <div class="right">
+            <div class="top-row">
+                <div class="username">
+                    <i class="fa-solid fa-user"></i>
+                    <h2>username</h2>
+                </div>
+            </div>
 
-  <!-- Side navigation and form -->
-  <div class="container">
-    <aside class="sidebar">
-      <button class="newClaim">+ new claim</button>
-      <ul class="claim-list">
-        <li>claim 10001</li>
-        <li>claim 10002</li>
-        <li>claim 10003</li>
-        <li>claim 10004</li>
-      </ul>
-    </aside>
-
-  <!-- customer info -->
-  <div class="main-content">
-    <div class="form-row">
-      <div class="form-section">
-        <h3>Customer Information</h3>
-        <div class="form-group">
-          <label for="customer-name">Name</label>
-          <input type="text" id="customer-name" />
+            <div class="bottom-row">
+                <div class="notification">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </div>
+                <form class="search-form" action="search-results.html" method="GET">
+                    <div class="search-box">
+                        <input type="text" name="query" placeholder="Search...">
+                        <button type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="customer-phone">Phone</label>
-          <input type="text" id="customer-phone" />
-        </div>
-        <div class="form-group">
-          <label for="customer-email">Email</label>
-          <input type="email" id="customer-email" />
-        </div>
-        <div class="form-group">
-          <label for="customer-label">Label Number</label>
-          <input type="text" id="customer-label" />
-        </div>
-      </div>
-
-      <!-- involved info -->
-      <div class="form-section">
-        <h3>Involved</h3>
-        <div class="form-group-inline">
-          <div class="form-group">
-            <label for="involved-name">Name</label>
-            <input type="text" id="involved-name" />
-          </div>
-          <div class="form-group">
-            <label for="involved-label">Label Number</label>
-            <input type="text" id="involved-label" />
-          </div>
-        </div>
-        <div class="form-group-inline">
-          <div class="form-group">
-            <label for="involved-phone">Phone</label>
-            <input type="text" id="involved-phone" />
-          </div>
-          <div class="form-group">
-            <label for="involved-insurance">Insurance</label>
-            <input type="text" id="involved-insurance" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="involved-email">Email</label>
-          <input type="email" id="involved-email" />
-        </div>
-        <button class="add-involved">add involved</button>
-      </div>
     </div>
 
-    <!-- claim info -->
-    <div class="form-section">
-      <h3>Claim Information</h3>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="claim-number">Claim Number</label>
-          <input type="text" id="claim-number" />
+    <!-- Main content area -->
+    <div class="mainPart">
+        <!-- Brief information about the claim -->
+        <div class="brief-infos">
+            <h2>Βrief Infos</h2>
+            <p><strong>Claim number:</strong> 12345</p>
+            <p><strong>Customer:</strong> Papadopoulos Giannis</p>
+            <p><strong>Label number:</strong> 000-0000</p>
+            <p><strong>Location:</strong> Athens, Greece</p>
+            <p><strong>Date of incident:</strong> 26/04/2025</p>
+            <p><strong>Status:</strong> Under Investigation</p>
+            <p><strong>Priority:</strong> Medium</p>
+            <p><strong>Assigned to:</strong> Papadopoulou Maria</p>
+            <p><strong>Open Since:</strong> 03d 12h</p>
+            <p><strong>Estimated Payout:</strong> €4,500</p>
+            <p><strong>Fraud Risk:</strong> Low</p>
+            <p><strong>Blame:</strong> 100%</p>
         </div>
-        <div class="form-group">
-          <label for="assigned-to">Assigned to</label>
-          <select id="assigned-to" name="settler">
-            <option value="">-- select --</option>
-          </select>
+
+        <!-- Folder information and involved parties -->
+        <div class="folder-infos">
+            <h2>Folder Infos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <p>Claim number: 12345</p>
+                        <p>Assigned to: Papadopoulou Maria</p>
+                        <p>Reported to: Nikos Marangos</p>
+                    </tr>
+                </thead>
+            </table>
+
+            <!-- People involved in the claim -->
+            <div class="involved">
+                <!-- Repeatable person blocks -->
+                <div class="person">
+                    <div class="involved-title">Involved 01</div>
+                    <div class="person-info">
+                        <p>Name: Giannis</p>
+                        <p>Surname: Papadopoulos</p>
+                        <p>Phone: 6999999999</p>
+                        <p>Email: gpapadopoulos@gmail.com</p>
+                        <p>Label number: OOO-0000</p>
+                        <p>Insurance: A Ασφαλιστική</p>
+                        <p>Blame: 100%</p>
+                    </div>
+                </div>
+                <div class="person">
+                    <div class="involved-title">Involved 02</div>
+                    <div class="person-info">
+                        <p>Name: Konstantinos</p>
+                        <p>Surname: Efthimiou</p>
+                        <p>Phone:6999990100</p>
+                        <p>Email:k.efthimiou@gmail.gr</p>
+                        <p>Label number: OOO-0002</p>
+                        <p>Insurance:B Insurance</p>
+                        <p>Blame: 0% </p>
+                    </div>
+                </div>
+                <div class="person">
+                    <div class="involved-title">Involved 03</div>
+                    <div class="person-info">
+                        <p>Name: Natasha</p>
+                        <p>Surname: Mali</p>
+                        <p>Phone:690000001</p>
+                        <p>Email:n.mali@gmail.com</p>
+                        <p>Label number:AAA-0000</p>
+                        <p>Insurance: B Insurance</p>
+                        <p>Blame: 0%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Free text area for details -->
+            <div class="details">
+                <label for="details">Details</label>
+                <textarea id="details" placeholder="Add details..."></textarea>
+            </div>
         </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="location">Location</label>
-          <input type="text" id="location" />
+
+        <!-- Right panel with status and actions -->
+        <div class="right-panel">
+            <div class="uper-right-panel">
+                <div class="status">
+                    <h3>Status: Open, 03d 02h</h3>
+                    <ul>
+                        <p>- New update: 00d 01h</p>
+                        <p>- New doc: 00d 02h</p>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lower-right-panel">
+                <!-- Request assignment dropdown -->
+                <div class="request">
+                    <h3>Request</h3>
+                    <div id="req-container">
+                        <div class="req-wrapper">
+                            <div id="requests" colour="#ccc">
+                                <select id="teamSelect">
+                                    <option value="Garage">Garage</option>
+                                    <option value="Lawyer">Lawyer</option>
+                                    <option value="Settler">Settler</option>
+                                    <option value="Adjuster">Adjuster</option>
+                                </select>
+                                <button onclick="showPopup()">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Popup for confirming the request -->
+                <div class="popup-overlay" id="popupOverlay">
+                    <div class="popup">
+                        <p>New request to <strong id="chosenTeamName"></strong></p>
+                        <div class="popup-content">
+                            <p><label>Type of request</label></p>
+                            <p><input type="text" placeholder="Type..."></p>
+                            <p><label>Comments</label></p>
+                            <textarea placeholder="Type comment..."></textarea>
+                            <button class="confirm" onclick="closePopup()">Confirm and assign</button>
+                            <button class="close" onclick="closePopup()">Close</button> 
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section to manage info links -->
+                <div class="info-links">
+                    <h3>Information link</h3>
+                    <div id="link-container">
+                        <div class="link-wrapper">
+                            <input type="text" class="link-input" placeholder="Add link..." oninput="toggleRemoveButton(this)">
+                            <span class="remove-btn" onclick="removeLink(this)">✖</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="fraud-risk">Fraud Risk</label>
-          <select id="fraud-risk" name="fraud-risk">
-            <option value="">-- Select Risk Level --</option>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-            <option value="very high">Very high</option>
-          </select>          
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="date-incident">Date of Incident</label>
-          <input type="date" id="date-incident" />
-        </div>
-        <div class="form-group">
-          <label for="blame">Blame</label>
-          <select id="blame" name="blame">
-            <option value="">-- Select --</option>
-            <option value="0%">0%</option>
-            <option value="25%">25%</option>
-            <option value="50%">50%</option>
-            <option value="75%">75%</option>
-            <option value="100%">100%</option>            
-          </select>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="status">Status</label>
-          <select id="status" name="status">
-            <option value="">-- Select Status --</option>
-            <option value="open">Open</option>
-            <option value="in-progress">In Progress</option>
-            <option value="closed">Closed</option>
-            <option value="on-hold">On Hold</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="payout">Estimated Payout</label>
-          <input type="text" id="payout" />
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="priority">Priority</label>
-          <select id="priority" name="priority">
-            <option value="">-- Select --</option>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-          </select>
-        </div>
-        <div class="form-actions">
-            <button type="button" class="submit-button">Submit Claim</button>
-        </div>                  
-      </div>   
     </div>
-  </div>
-  </div>
+
 </body>
+
+<!-- Live update for details textarea -->
+<script>
+    const textarea = document.getElementById('details');
+    const output = document.getElementById('details-output');
+
+    textarea.addEventListener('input', function () {
+        output.textContent = textarea.value;
+    });
+</script>
+
+<!-- Dynamic creation/removal of information link inputs -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const container = document.getElementById('link-container');
+
+        container.addEventListener('input', function (e) {
+            if (e.target.classList.contains('link-input')) {
+                toggleRemoveButton(e.target); 
+
+                const wrappers = container.querySelectorAll('.link-wrapper');
+                const lastInput = wrappers[wrappers.length - 1].querySelector('.link-input');
+
+                if (lastInput.value.trim() !== '') {
+                    const newWrapper = document.createElement('div');
+                    newWrapper.className = 'link-wrapper';
+
+                    const newInput = document.createElement('input');
+                    newInput.type = 'text';
+                    newInput.placeholder = 'Add link...';
+                    newInput.className = 'link-input';
+                    newInput.setAttribute('oninput', 'toggleRemoveButton(this)');
+
+                    const removeBtn = document.createElement('span');
+                    removeBtn.className = 'remove-btn';
+                    removeBtn.textContent = '✖';
+                    removeBtn.onclick = function () {
+                        removeLink(removeBtn);
+                    };
+
+                    newWrapper.appendChild(newInput);
+                    newWrapper.appendChild(removeBtn);
+                    container.appendChild(newWrapper);
+                }
+            }
+        });
+    });
+
+    function toggleRemoveButton(input) {
+        const wrapper = input.parentElement;
+        const removeBtn = wrapper.querySelector('.remove-btn');
+        removeBtn.style.display = input.value.trim() !== '' ? 'inline' : 'none';
+    }
+
+    function removeLink(button) {
+        const wrapper = button.parentElement;
+        wrapper.remove();
+    }
+</script>
+
+<!-- Popup logic -->
+<script>
+    function showPopup() {
+        const teamSelect = document.getElementById("teamSelect");
+        const chosenTeam = teamSelect.value;
+        document.getElementById("chosenTeamName").textContent = chosenTeam;
+        document.getElementById("popupOverlay").style.display = "flex";
+    }
+
+    function closePopup() {
+        document.getElementById("popupOverlay").style.display = "none";
+    }
+</script>
+
 </html>
